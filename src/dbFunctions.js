@@ -5,7 +5,8 @@ const newTv = req.body;
 
 
 // CREATE: add new tv show
-db.collection('tv-shows').add(newTv)
+db.collection('tv-shows')
+.add(newTv)
 .then(doc => res.status(201).send(`New Tv Added: ${doc.id}`))
 .catch(err => res.status(500).send(err))
 }
