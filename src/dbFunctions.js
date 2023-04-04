@@ -12,9 +12,10 @@ db.collection('tv-shows')
 }
 
 export async function getAllTv(req,res){
-const collection = await db.collection('tvShows')
+const collection = await db.collection('tv-shows')
 .get()
 .catch(err => res.status(500).send(err))
 
 const tvShowList = collection.docs.map(element=>({...element.data(),id: tvShowList.id}))
+res.send(tvShowList)
 }
